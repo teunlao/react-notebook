@@ -18,6 +18,9 @@ const App = () => {
       bundle: true,
       write: false,
       plugins: [unpkgPathPlugin()],
+      definde: {
+        'proccess.env.NODE_ENV': 'production',
+      },
     });
 
     console.log(result);
