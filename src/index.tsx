@@ -25,10 +25,14 @@ const App = () => {
       },
     });
 
-    console.log(result);
-
-    console.log(result.outputFiles[0].text);
     setCode(result.outputFiles[0].text);
+
+    try {
+      // eslint-disable-next-line no-eval
+      eval(code);
+    } catch (err) {
+      alert(err);
+    }
   };
 
   const startService = async () => {
