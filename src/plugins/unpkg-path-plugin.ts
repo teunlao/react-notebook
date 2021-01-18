@@ -1,8 +1,20 @@
 import * as esbuild from 'esbuild-wasm';
 import axios from 'axios';
+import localForage from 'localforage';
+
+const fileCache = localForage.createInstance({
+  name: 'filecache',
+});
+
+(async () => {
+  await fileCache.setItem('color', 'red');
+
+  const color = await fileCache.getItem('color');
+  console.log(color);
+})();
 
 // eslint-disable-next-line import/prefer-default-export
-export const unpkgPathPlugin = (): esbuild.Plugin => {
+export const unpkgPathPlugin = (inputCode: string): esbuild.Plugin => {
   return {
     name: 'unpkg-path-plugin',
     setup(build: esbuild.PluginBuild) {
@@ -38,20 +50,27 @@ export const unpkgPathPlugin = (): esbuild.Plugin => {
         if (args.path === 'index.js') {
           return {
             loader: 'jsx',
-            contents: `
-              const message = require('react-dom');
-              console.log(message);
-            `,
+            contents: inputCode,
           };
+        }
+
+        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(args.path);
+
+        if (cachedResult) {
+          return cachedResult;
         }
 
         const { data, request } = await axios.get(args.path);
         console.log(request);
-        return {
+        const result: esbuild.OnLoadResult = {
           loader: 'jsx',
           contents: data,
           resolveDir: new URL('./', request.responseURL).pathname,
         };
+
+        await fileCache.setItem(args.path, result);
+
+        return result;
       });
     },
   };
