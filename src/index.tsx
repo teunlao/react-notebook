@@ -26,14 +26,11 @@ const App = () => {
     });
 
     setCode(result.outputFiles[0].text);
-
-    try {
-      // eslint-disable-next-line no-eval
-      eval(code);
-    } catch (err) {
-      alert(err);
-    }
   };
+
+  const html = `
+<script>${code}</script>
+`;
 
   const startService = async () => {
     ref.current = await esbuild.startService({
@@ -55,6 +52,7 @@ const App = () => {
         </button>
       </div>
       <pre>{code}</pre>
+      <iframe sandbox="allow-scripts" srcDoc={html} title="react-notebook" />
     </div>
   );
 };
