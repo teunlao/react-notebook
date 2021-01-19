@@ -39,7 +39,8 @@ const App = () => {
     </html>
   `;
 
-  const onClick = async () => {
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  const onClick = async (input: string) => {
     if (!ref.current) {
       return;
     }
@@ -62,11 +63,17 @@ const App = () => {
 
   return (
     <div>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} />
+      <textarea
+        value={input}
+        onChange={(e) => {
+          onClick(e.target.value);
+          setInput(e.target.value);
+        }}
+      />
       <div>
-        <button type="submit" onClick={onClick}>
-          Submit
-        </button>
+        {/* <button type="submit" onClick={onClick}> */}
+        {/*  Submit */}
+        {/* </button> */}
       </div>
       <iframe title="code-preview" ref={iframe} sandbox="allow-scripts" srcDoc={html} />
     </div>
