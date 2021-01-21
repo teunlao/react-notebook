@@ -20,14 +20,15 @@ const html = `
           }
           
           window.addEventListener('error', event => {
-            handleError(event.error)
+            event.preventDefault();
+            handleError(event.error);
           })
         
           window.addEventListener('message', event => {
             try {
               eval(event.data);
             } catch (err) {
-              handleError(err)
+              handleError(err);
             }
           }, false);
         </script>
