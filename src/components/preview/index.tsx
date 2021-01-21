@@ -3,6 +3,7 @@ import './preview.css';
 
 interface PreviewProps {
   code: string;
+  bundlingStatus: string;
 }
 
 const html = `
@@ -36,7 +37,7 @@ const html = `
     </html>
   `;
 
-const Preview: React.FC<PreviewProps> = ({ code }) => {
+const Preview: React.FC<PreviewProps> = ({ code, bundlingStatus }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
   return (
     <div className="preview-wrapper">
       <iframe title="code-preview" ref={iframe} sandbox="allow-scripts" srcDoc={html} />
+      {bundlingStatus && <div className="preview-error">{bundlingStatus}</div>}
     </div>
   );
 };
