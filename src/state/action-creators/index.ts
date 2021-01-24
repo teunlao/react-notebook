@@ -35,7 +35,10 @@ export const moveCell = (id: string, direction: Direction): MoveCellAction => {
   };
 };
 
-export const insertCellAfter = (id: string | null, cellType: CellTypes): InsertCellAfterAction => {
+export const insertCellAfter = (
+  id: string | null,
+  cellType: CellTypes
+): InsertCellAfterAction => {
   return {
     type: ActionType.INSERT_CELL_AFTER,
     payload: {
