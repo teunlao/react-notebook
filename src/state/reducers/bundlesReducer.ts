@@ -1,3 +1,1 @@
-const bundlerReducer = () => {};
-
-export default bundlerReducer;
+export default 1;
