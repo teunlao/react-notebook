@@ -22,7 +22,6 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
       setErr(output.err);
     }, 750);
 
-    console.log(timer);
     return () => {
       clearTimeout(timer);
     };
