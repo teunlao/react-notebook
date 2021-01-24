@@ -1,6 +1,6 @@
 {
-  "name": "jbook",
-  "version": "0.1.0",
+  "name": "react-notebook",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@monaco-editor/react": "3.7.4",

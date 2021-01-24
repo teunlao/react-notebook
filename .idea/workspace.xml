@@ -2,57 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="390a44b7-e51b-43d2-abff-fac1b4fcca99" name="Default Changelist" comment="feat: install esbuild-wasm&#10;&#10;test the possibility to transpile and build js code in the browser with esbuild">
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/getHttpsConfig.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jest/cssTransform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jest/fileTransform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/modules.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/paths.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/pnpTs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpack.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpackDevServer.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/start.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bundler/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bundler/plugins/fetch-plugin.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bundler/plugins/unpkg-path-plugin.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/code-cell/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/code-editor/code-editor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/code-editor/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/code-editor/syntax.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/preview/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/preview/preview.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/resizable/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/resizable/resizable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text-editor/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text-editor/text-editor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/action-creators/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/action-types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/actions/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/cell.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/reducers/bundler.reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/reducers/cells.reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/reducers/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <list id="556ffeb4-2b51-4923-bdf2-9fe3c08c7d02" name="Revert &quot;feat: eject react scripts&quot;" comment="Revert &quot;feat: eject react scripts&quot;&#10;&#10;This reverts commit db72ed5d" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +145,7 @@
       <workItem from="1611090327520" duration="12245000" />
       <workItem from="1611168100122" duration="8824000" />
       <workItem from="1611258805187" duration="4434000" />
-      <workItem from="1611502562229" duration="7858000" />
+      <workItem from="1611502562229" duration="8008000" />
     </task>
     <task id="LOCAL-00001" summary="feat: eject react scripts">
       <created>1610824122042</created>
