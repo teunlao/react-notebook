@@ -1,6 +1,6 @@
-import MDEditor from '@uiw/react-md-editor';
-import React, { useEffect, useRef, useState } from 'react';
 import './text-editor.css';
+import { useState, useEffect, useRef } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 
 const TextEditor: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -9,14 +9,17 @@ const TextEditor: React.FC = () => {
 
   useEffect(() => {
     const listener = (event: MouseEvent) => {
-      if (ref.current && event.target && ref.current.contains(event.target as Node)) {
+      if (
+        ref.current &&
+        event.target &&
+        ref.current.contains(event.target as Node)
+      ) {
         return;
       }
 
       setEditing(false);
     };
-
-    window.addEventListener('click', listener, { capture: true });
+    document.addEventListener('click', listener, { capture: true });
 
     return () => {
       document.removeEventListener('click', listener, { capture: true });
@@ -25,7 +28,7 @@ const TextEditor: React.FC = () => {
 
   if (editing) {
     return (
-      <div className="text-editor card" ref={ref}>
+      <div className="text-editor" ref={ref}>
         <MDEditor value={value} onChange={(v) => setValue(v || '')} />
       </div>
     );

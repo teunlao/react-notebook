@@ -6,11 +6,11 @@ const fileCache = localForage.createInstance({
   name: 'filecache',
 });
 
-const fetchPlugin = (inputCode: string): esbuild.Plugin => {
+export const fetchPlugin = (inputCode: string) => {
   return {
-    name: 'fetchPlugin',
+    name: 'fetch-plugin',
     setup(build: esbuild.PluginBuild) {
-      build.onLoad({ filter: /(^index\.js$)/ }, (args: any) => {
+      build.onLoad({ filter: /(^index\.js$)/ }, () => {
         return {
           loader: 'jsx',
           contents: inputCode,
@@ -18,29 +18,32 @@ const fetchPlugin = (inputCode: string): esbuild.Plugin => {
       });
 
       build.onLoad({ filter: /.*/ }, async (args: any) => {
-        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(args.path);
+        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(
+          args.path
+        );
 
         if (cachedResult) {
           return cachedResult;
         }
-        return null;
       });
 
       build.onLoad({ filter: /.css$/ }, async (args: any) => {
         const { data, request } = await axios.get(args.path);
-        const escaped = data.replace(/\n/g, '').replace(/"/g, '\\|"').replace(/'/g, "\\'");
-
+        const escaped = data
+          .replace(/\n/g, '')
+          .replace(/"/g, '\\"')
+          .replace(/'/g, "\\'");
         const contents = `
-            const style = document.createElement('style');
-            style.innerText = '${escaped}';
-           `;
+          const style = document.createElement('style');
+          style.innerText = '${escaped}';
+          document.head.appendChild(style);
+        `;
 
         const result: esbuild.OnLoadResult = {
           loader: 'jsx',
           contents,
           resolveDir: new URL('./', request.responseURL).pathname,
         };
-
         await fileCache.setItem(args.path, result);
 
         return result;
@@ -54,7 +57,6 @@ const fetchPlugin = (inputCode: string): esbuild.Plugin => {
           contents: data,
           resolveDir: new URL('./', request.responseURL).pathname,
         };
-
         await fileCache.setItem(args.path, result);
 
         return result;
@@ -62,5 +64,3 @@ const fetchPlugin = (inputCode: string): esbuild.Plugin => {
     },
   };
 };
-
-export default fetchPlugin;
